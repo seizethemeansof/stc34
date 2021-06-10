@@ -16,10 +16,10 @@ function highlightFeature(e) {
     info.update(layer.feature.properties);
 
     layer.setStyle({
-        weight: 5,
-        color: '#666',
+        weight: 3,
+        color: '#888',
         dashArray: '',
-        fillOpacity: 0.7
+        fillOpacity: 0.5
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -44,10 +44,22 @@ function onEachFeature(feature, layer) {
     });
 }
 
+function style(feature) {
+    return {
+        fillColor: '',
+        weight: 2,
+        opacity: 1,
+        color: '#888',
+        dashArray: '',
+        fillOpacity: 0.1
+    };
+}
+
 async function fetchJSON(url) {
     const response = await fetch(url);
     const countriesData = await response.json();
     geojson = await L.geoJson(countriesData, {
+        style: style,
         onEachFeature: onEachFeature
     }).addTo(map);
 }

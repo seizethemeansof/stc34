@@ -52,6 +52,14 @@ html, body {
     font-size: 17px;
 }
 
+.topnav-right {
+    float: right;
+}
+
+/* #logo {
+    float: left;
+} */
+
 /* Change the color of links on hover */
 
 .topnav-container a:hover {
